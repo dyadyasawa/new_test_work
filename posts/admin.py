@@ -5,7 +5,7 @@ from posts.models import Post
 
 
 @admin.register(Post)
-class UserAdmin(admin.ModelAdmin):
+class PostAdmin(admin.ModelAdmin):
     list_display = (
         "header",
         "author",
