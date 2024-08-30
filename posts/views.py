@@ -10,19 +10,19 @@ from users.permissions import IsAuthor
 class PostListAPIView(ListAPIView):
     serializer_class = PostSerializer
     queryset = Post.objects.all()
-    permission_classes = (AllowAny, IsAdminUser,)
+    permission_classes = (AllowAny,)
 
 
 class PostDetailAPIView(RetrieveAPIView):
     serializer_class = PostSerializer
     queryset = Post.objects.all()
-    permission_classes = (AllowAny, IsAdminUser,)
+    permission_classes = (AllowAny,)
 
 
 class PostCreateAPIView(CreateAPIView):
     serializer_class = PostSerializer
     queryset = Post.objects.all()
-    permission_classes = (IsAuthenticated, IsAdminUser,)
+    permission_classes = (IsAdminUser | IsAuthenticated,)
 
     def perform_create(self, serializer):
         post = serializer.save()
@@ -33,10 +33,10 @@ class PostCreateAPIView(CreateAPIView):
 class PostUpdateAPIView(UpdateAPIView):
     serializer_class = PostSerializer
     queryset = Post.objects.all()
-    permission_classes = (IsAdminUser, IsAuthor,)
+    permission_classes = (IsAdminUser | IsAuthor,)
 
 
 class PostDeleteAPIView(DestroyAPIView):
     serializer_class = PostSerializer
     queryset = Post.objects.all()
-    permission_classes = (IsAdminUser, IsAuthor,)
+    permission_classes = (IsAdminUser | IsAuthor,)

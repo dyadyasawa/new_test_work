@@ -12,7 +12,6 @@ class Post(models.Model):
     image = models.ImageField(upload_to='post/', verbose_name='Изображение', **NULLABLE)
 
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Автор")
-    # comments =
     created_at = models.DateField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateField(auto_now_add=True, verbose_name='Дата редактирования')
 
