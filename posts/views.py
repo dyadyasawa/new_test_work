@@ -1,7 +1,7 @@
 
 from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
 from posts.models import Post
-from posts.serializers import PostSerializer
+from posts.serializers import PostSerializer, PostCreateSerializer
 from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
 
 from users.permissions import IsAuthor
@@ -20,7 +20,7 @@ class PostDetailAPIView(RetrieveAPIView):
 
 
 class PostCreateAPIView(CreateAPIView):
-    serializer_class = PostSerializer
+    serializer_class = PostCreateSerializer
     queryset = Post.objects.all()
     permission_classes = (IsAdminUser | IsAuthenticated,)
 
