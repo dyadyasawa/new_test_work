@@ -2,11 +2,18 @@
 from rest_framework import serializers  # ModelSerializer, SerializerMethodField
 
 from users.models import User
-# from users.validators import validate_count_symbols_in_password
+from users.validators import ValidatePasswordSymbolsCount
+
+
+class UserCreateSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = "__all__"
+        validators = [ValidatePasswordSymbolsCount(field="password")]
 
 
 class UserSerializer(serializers.ModelSerializer):
-    # password = serializers.CharField(validators=[validate_count_symbols_in_password])
 
     class Meta:
         model = User
