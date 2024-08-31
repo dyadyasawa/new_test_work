@@ -20,19 +20,19 @@ class UserCreateAPIView(CreateAPIView):
 class UserListAPIView(ListAPIView):
     serializer_class = UserSerializer
     queryset = User.objects.all()
-    permission_classes = (IsAuthenticated, IsAdminUser,)
+    permission_classes = (IsAuthenticated | IsAdminUser,)
 
 
 class UserDetailAPIView(RetrieveAPIView):
     serializer_class = UserSerializer
     queryset = User.objects.all()
-    permission_classes = (IsAuthenticated, IsAdminUser,)
+    permission_classes = (IsAuthenticated | IsAdminUser,)
 
 
 class UserUpdateAPIView(UpdateAPIView):
     serializer_class = UserSerializer
     queryset = User.objects.all()
-    permission_classes = (IsAdminUser, IsAuthor,)
+    permission_classes = (IsAdminUser | IsAuthor,)
 
 
 class UserDeleteAPIView(DestroyAPIView):

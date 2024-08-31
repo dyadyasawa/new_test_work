@@ -9,19 +9,19 @@ from users.permissions import IsAuthor
 class CommentListAPIView(ListAPIView):
     serializer_class = CommentSerializer
     queryset = Comment.objects.all()
-    permission_classes = (AllowAny, IsAdminUser,)
+    permission_classes = (AllowAny,)
 
 
 class CommentDetailAPIView(RetrieveAPIView):
     serializer_class = CommentSerializer
     queryset = Comment.objects.all()
-    permission_classes = (AllowAny, IsAdminUser,)
+    permission_classes = (AllowAny,)
 
 
 class CommentCreateAPIView(CreateAPIView):
     serializer_class = CommentSerializer
     queryset = Comment.objects.all()
-    permission_classes = (IsAuthenticated, IsAdminUser,)
+    permission_classes = (IsAuthenticated | IsAdminUser,)
 
     def perform_create(self, serializer):
         comment = serializer.save()
@@ -32,10 +32,10 @@ class CommentCreateAPIView(CreateAPIView):
 class CommentUpdateAPIView(UpdateAPIView):
     serializer_class = CommentSerializer
     queryset = Comment.objects.all()
-    permission_classes = (IsAdminUser, IsAuthor,)
+    permission_classes = (IsAdminUser | IsAuthor,)
 
 
 class CommentDeleteAPIView(DestroyAPIView):
     serializer_class = CommentSerializer
     queryset = Comment.objects.all()
-    permission_classes = (IsAdminUser, IsAuthor,)
+    permission_classes = (IsAdminUser | IsAuthor,)
