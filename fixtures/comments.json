@@ -1,0 +1,46 @@
+[
+  {
+    "model": "comments.comment",
+    "pk": 1,
+    "fields": {
+      "author": 7,
+      "content": "Полностью согласен. Куда смотрят метеорологи?",
+      "created_at": "2024-08-30",
+      "updated_at": "2024-08-30",
+      "post": 1
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 2,
+    "fields": {
+      "author": 7,
+      "content": "Какие молодцы! Так держать!",
+      "created_at": "2024-08-30",
+      "updated_at": "2024-08-30",
+      "post": 2
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 3,
+    "fields": {
+      "author": 6,
+      "content": "Не может быть!",
+      "created_at": "2024-08-30",
+      "updated_at": "2024-08-30",
+      "post": 3
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 4,
+    "fields": {
+      "author": 6,
+      "content": "Зато вкусно!",
+      "created_at": "2024-08-30",
+      "updated_at": "2024-08-30",
+      "post": 4
+    }
+  }
+]

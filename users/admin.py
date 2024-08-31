@@ -10,6 +10,6 @@ class UserAdmin(admin.ModelAdmin):
         "login",
         "phone",
     )
-    list_filter = ("login",)
+    list_filter = ("created_at",)
     search_fields = ("login",)
 
